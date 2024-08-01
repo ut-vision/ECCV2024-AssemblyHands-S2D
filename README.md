@@ -7,8 +7,8 @@ Aug 2, 2024: Update test files (v1-1).  Please check the ``test_pair_stats `` in
 
 ## Test image and metadata
 You can find test images and files (including image path, bbox): \
-[[test images]](https://drive.google.com/drive/folders/1Vsh4V_7JLyycP8c13_RVPpXhmlQaJhdD?usp=sharing) 
-[[test files]](https://drive.google.com/drive/folders/18p4kF6BmArKGp3cac7Ww4TjfYcbHbYRs?usp=drive_link) \
+[[test images]](https://drive.google.com/drive/folders/1sbZcZMIKS2lk2zBxfa47cWA2KDZXPwVE?usp=sharing) 
+[[test files]](https://drive.google.com/drive/folders/1ell5eDp86D5GXm8Gy4PbGskPZ52rUwsb?usp=sharing) \
 Please place the `template/` folder under this directory. \
 
 ## Evaluation details
