@@ -31,7 +31,7 @@ def get_pred():
 
 if __name__ == '__main__':
 
-    with open('template/assemblyhands_test_joint_3d_eccv24_pred_template.json', 'r') as f:
+    with open('template/assemblyhands_test_joint_3d_eccv24_v1-1_pred_template.json', 'r') as f:
         kpt_pred = json.load(f)  # fill in 1.0 by default
 
     total_samples = 0

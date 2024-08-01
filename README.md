@@ -1,9 +1,21 @@
-ECCV HANDS2024: Single-to-Dual-View Adaptation Challenge
----
+# ECCV HANDS2024: AssemblyHands-S2D
+This repository offers a submission guidance for the [ECCV 2024 HANDS challenge - AssemblyHands-S2D](https://hands-workshop.org/challenge2024.html).
+The task is adapting a single-view 3D hand pose estimator to dual-view settings.
 
-This is submission guidance for the **ECCV HANDS2024: AssemblyHands-S2D Challenge**. 
+## Release notes
+Aug 2, 2024: Update test files (v1-3).  Please check the total stats (n_img: 61725, n_kpt: 25885) and ``test_seq_stats `` in `chllenge_submit.py`.
 
-Please follow the template `template/assemblyhands_test_joint_3d_eccv24_pred_template.json` for submission, which has the following structure
+## Test image and metadata
+You can find test images and files (including image path, bbox): \
+[[test images]](https://drive.google.com/drive/folders/1Vsh4V_7JLyycP8c13_RVPpXhmlQaJhdD?usp=sharing) 
+[[test files]](https://drive.google.com/drive/folders/18p4kF6BmArKGp3cac7Ww4TjfYcbHbYRs?usp=drive_link) \
+Please place the `template/` folder under this directory. \
+
+## Evaluation details
+We will evaluate 3D predictions in camera coordinates. We will calculate the error after aligning the predictions with ground-truth labels.
+
+The data file `test_HANDS2024/assemblyhands_test_ego_data-${version}.json` defines the input images that can be used for test dataloader.
+The final submission format is specified by `template/assemblyhands_test_joint_3d_eccv24_${version}_pred_template.json`. \
 ```angular2html
 - info
 - annotations
@@ -12,13 +24,29 @@ Please follow the template `template/assemblyhands_test_joint_3d_eccv24_pred_tem
             - camera name
                 - frame id: 3D joint list (21 * 3)
 ```
-Note that the 3D joints should be in camera coordinate systems. We will calculate the error after align the predictions with ground-truth labels.  
+Note: we've filtered out images that are not suitable for evaluation (e.g., the hand is partially out-of-view). 
+This results in less frame indices than those in the test image folder.
 
-## Submission code
-Please implement the `get_pred` function in `challenge_submit.py` to return the 3D joint prediction given the camera pair, sequence name, camera name, and frame id.
+Before submission, please make sure the following notes:
+- Hand joint format (21 keypoints are defined for each frame)
+- Frame indices match the template json
+- Leave the prediction blank (fill in 0s) if the hand bbox is not provided in the data file
 
-Then, please upload the generated json file to our challenge website.
+## How to convert to camera coordinates and visualization
+As we only allow to use the provided pre-trained weights for adaptation, those model's predictions are under camera coordinate by default.
+Please refer to the example [S2DHand Toolkit](https://github.com/MickeyLLG/S2DHand_HANDS2024)'s dataloader and pre-trained weights.
 
-## Contact
+Please refer to the `visualize.py` of the example [S2DHand Toolkit](https://github.com/MickeyLLG/S2DHand_HANDS2024) for visialization.
+## Submission instructions
+The script `challenge_submit.py` will create your own json file using the template file.
+Please custom the `get_pred(.)` function to register in your results.
+By default, the function fills in ones and saves them to `assemblyhands_test_joint_3d_eccv24_pred.jso`.
+Finally, please upload your prediction file as a zip file to the evaluation server.
 
-For any questions, including algorithms and datasets, feel free to contact us via the hands group email.
+## References
+- [AssemblyHands Toolkit](https://github.com/facebookresearch/assemblyhands-toolkit)
+- [S2DHand Toolkit](https://github.com/MickeyLLG/S2DHand_HANDS2024)
+- [ECCV 2024 HANDS Workshop](https://hands-workshop.org/workshop2024.html)
+
+## Acknowledgment
+We thank Dr. Linlin Yang, Prof. Angela Yao (NUS), Dr. Kun He (Meta), and Prof. Yoichi Sato (UTokyo) for helpful discussions on the design of the challenge. This dataset is based on the work at Meta Reality Labs, and thanks go to Dr. Fadime Sener, Dr. Tomas Hodan, Dr. Luan Tran, and Dr. Cem Keskin (Meta). 
