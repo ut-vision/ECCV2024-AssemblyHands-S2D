@@ -3,7 +3,7 @@ This repository offers a submission guidance for the [ECCV 2024 HANDS challenge 
 The task is adapting a single-view 3D hand pose estimator to dual-view settings.
 
 ## Release notes
-Aug 2, 2024: Update test files (v1-3).  Please check the total stats (n_img: 61725, n_kpt: 25885) and ``test_seq_stats `` in `chllenge_submit.py`.
+Aug 2, 2024: Update test files (v1-1).  Please check the ``test_pair_stats `` in `challenge_submit.py`.
 
 ## Test image and metadata
 You can find test images and files (including image path, bbox): \
