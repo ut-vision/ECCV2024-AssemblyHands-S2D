@@ -10,12 +10,13 @@ You can find test images and files (including image path, bbox): \
 [[test images]](https://drive.google.com/drive/folders/1sbZcZMIKS2lk2zBxfa47cWA2KDZXPwVE?usp=sharing) 
 [[test files]](https://drive.google.com/drive/folders/1ell5eDp86D5GXm8Gy4PbGskPZ52rUwsb?usp=sharing) \
 Please place the `template/` folder under this directory. \
+Code for baseline method (you may develop based on it): https://github.com/ut-vision/S2DHand_HANDS2024
 
 ## Evaluation details
 We will evaluate 3D predictions in camera coordinates. We will calculate the error after aligning the predictions with ground-truth labels.
 
 The data file `test_HANDS2024/assemblyhands_test_ego_data-${version}.json` defines the input images that can be used for test dataloader.
-The final submission format is specified by `template/assemblyhands_test_joint_3d_eccv24_${version}_pred_template.json`. \
+The final submission format is specified by `template/asßsemblyhands_test_joint_3d_eccv24_${version}_pred_template.json`. \
 ```angular2html
 - info
 - annotations
