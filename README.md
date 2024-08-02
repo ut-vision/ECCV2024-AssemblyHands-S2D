@@ -10,7 +10,7 @@ You can find test images and files (including image path, bbox): \
 [[test images]](https://drive.google.com/drive/folders/1sbZcZMIKS2lk2zBxfa47cWA2KDZXPwVE?usp=sharing) 
 [[test files]](https://drive.google.com/drive/folders/1ell5eDp86D5GXm8Gy4PbGskPZ52rUwsb?usp=sharing) \
 Please place the `template/` folder under this directory. \
-Code for baseline method (you may develop based on it): https://github.com/ut-vision/S2DHand_HANDS2024
+Code for baseline method (you can develop based on it): https://github.com/ut-vision/S2DHand_HANDS2024
 
 ## Evaluation details
 We will evaluate 3D predictions in camera coordinates. We will calculate the error after aligning the predictions with ground-truth labels.
